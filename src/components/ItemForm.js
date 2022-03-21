@@ -12,8 +12,6 @@ function ItemForm(props) {
       ...newItem,
       [event.target.name]: event.target.value
     })
-    //console.log('name:', event.target.name, 'value:', event.target.value)
-    //console.log(newItem)
   }
 
 
@@ -21,10 +19,11 @@ function ItemForm(props) {
     event.preventDefault();
 
     const newFood = {
+      id: uuid(),
       name: newItem.name, 
       category: newItem.category
     }
-    console.log(newFood)
+    props.onItemFormSubmit(newFood);
   }
   
   
